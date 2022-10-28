@@ -28,7 +28,7 @@ const CreateForm = () => {
   ) => {
     e.preventDefault();
 
-    const res = await fetch("/api/vents", {
+    const res = await fetch("https://ventspace.vercel.app/api/vents", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

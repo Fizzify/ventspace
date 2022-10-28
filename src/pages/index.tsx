@@ -14,7 +14,7 @@ const Home: NextPage = ({
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch("http://localhost:3000/api/vents", {
+  const res = await fetch("https://ventspace.vercel.app/api/vents", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
