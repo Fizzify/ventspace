@@ -8,16 +8,13 @@ export interface IVentItem {
 
 const VentItem = ({ id, title, paragraph }: IVentItem) => {
   const handleDelete: React.MouseEventHandler<HTMLButtonElement> = async () => {
-    const res = await fetch(
-      `https://vercelspace.vercel.app/api/vents?id=${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      }
-    );
+    const res = await fetch(`https://ventspace.vercel.app/api/vents?id=${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
 
     if (res.ok) return Router.push("/");
   };
