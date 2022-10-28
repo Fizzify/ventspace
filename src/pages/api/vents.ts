@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client";
 import NextCors from "nextjs-cors";
@@ -36,6 +35,16 @@ export default async function handler(
       });
 
       res.status(200).json(postedVent);
+      break;
+    case "DELETE":
+      const id: string | undefined = req.query.id?.toString();
+      const deletedVent: Vent = await prisma.vent.delete({
+        where: {
+          id,
+        },
+      });
+
+      res.status(200).json(deletedVent);
       break;
 
     default:
