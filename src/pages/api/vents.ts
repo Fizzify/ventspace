@@ -8,7 +8,6 @@ interface Vent {
   id: string;
   title: string;
   paragraph: string;
-  password?: string;
 }
 
 export default async function handler(
@@ -29,12 +28,11 @@ export default async function handler(
       res.status(200).json(vents);
       break;
     case "POST":
-      const { title, paragraph, password } = req.body;
+      const { title, paragraph } = req.body;
       const postedVent: Vent = await prisma.vent.create({
         data: {
           title,
           paragraph,
-          password: password ? password : "",
         },
       });
 

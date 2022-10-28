@@ -8,7 +8,6 @@ const CreateForm = () => {
   const [newVent, setNewVent] = useState<IVentItem>({
     title: "",
     paragraph: "",
-    password: "",
   });
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (
