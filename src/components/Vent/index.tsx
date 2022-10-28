@@ -4,6 +4,7 @@ export interface IVentItem {
   id?: string;
   title: string;
   paragraph: string;
+  password: string;
 }
 
 const VentItem = ({ id, title, paragraph }: IVentItem) => {

@@ -14,6 +14,7 @@ const VentList = ({ ventData }: IVentList) => {
             id={vent.id}
             title={vent.title}
             paragraph={vent.paragraph}
+            password={vent.password}
           />
         );
       })}
