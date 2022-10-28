@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client";
+import NextCors from "nextjs-cors";
 const prisma = new PrismaClient();
 
 interface Vent {
@@ -12,6 +13,12 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  await NextCors(req, res, {
+    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+    origin: "https://ventspace.vercel.app/*/*",
+    optionsSuccessStatus: 200,
+  });
+
   const method = req.method;
 
   switch (method) {
