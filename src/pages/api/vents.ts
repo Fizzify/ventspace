@@ -24,7 +24,7 @@ export default async function handler(
 
   switch (method) {
     case "GET":
-      const vents = await prisma.vent.findMany();
+      const vents: Vent[] = await prisma.vent.findMany();
       res.status(200).json(vents);
       break;
     case "POST":
