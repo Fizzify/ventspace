@@ -27,7 +27,7 @@ const VentItem = ({ id, title, paragraph }: IVentItem) => {
       <h3 className="font-bold text-2xl">{title}</h3>
       <p>{paragraph}</p>
       <button
-        className="px-4 py-2 bg-red-700 text-white"
+        className="px-4 py-1 bg-red-700 text-white rounded"
         onClick={handleDelete}
       >
         Delete
