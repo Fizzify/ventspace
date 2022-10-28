@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client";
 import NextCors from "nextjs-cors";
+
 const prisma = new PrismaClient();
 
 interface Vent {
