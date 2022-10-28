@@ -11,4 +11,5 @@ model Vent {
   id        String @id @default(cuid())
   title     String
   paragraph String
+  password  String
 }

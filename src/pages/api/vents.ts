@@ -4,10 +4,11 @@ import NextCors from "nextjs-cors";
 
 const prisma = new PrismaClient();
 
-interface Vent {
+interface IVent {
   id: string;
   title: string;
   paragraph: string;
+  password: string;
 }
 
 export default async function handler(
@@ -24,15 +25,16 @@ export default async function handler(
 
   switch (method) {
     case "GET":
-      const vents: Vent[] = await prisma.vent.findMany();
+      const vents: IVent[] = await prisma.vent.findMany();
       res.status(200).json(vents);
       break;
     case "POST":
-      const { title, paragraph } = req.body;
-      const postedVent: Vent = await prisma.vent.create({
+      const { title, paragraph, password } = req.body;
+      const postedVent: IVent = await prisma.vent.create({
         data: {
           title,
           paragraph,
+          password,
         },
       });
 
@@ -40,7 +42,7 @@ export default async function handler(
       break;
     case "DELETE":
       const id: string | undefined = req.query.id?.toString();
-      const deletedVent: Vent = await prisma.vent.delete({
+      const deletedVent: IVent = await prisma.vent.delete({
         where: {
           id,
         },

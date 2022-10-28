@@ -8,9 +8,9 @@ interface ICreateInput {
 const CreateInput = ({ children, type, name, onChange }: ICreateInput) => {
   return (
     <>
-      <label>{children}</label>
+      <label className="text-xl">{children}</label>
       <input
-        className="block border border-black mx-auto outline-none px-2"
+        className="block border border-black mx-auto outline-none px-2 my-4"
         onChange={onChange}
         name={name}
         type={type}
