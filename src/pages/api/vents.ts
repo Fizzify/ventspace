@@ -34,7 +34,7 @@ export default async function handler(
         data: {
           title,
           paragraph,
-          password,
+          password: password ? password : "",
         },
       });
 
