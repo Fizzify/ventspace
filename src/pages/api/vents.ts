@@ -4,6 +4,7 @@ import NextCors from "nextjs-cors";
 const prisma = new PrismaClient();
 
 interface Vent {
+  id: string;
   title: string;
   paragraph: string;
   password: string;
