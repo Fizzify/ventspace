@@ -8,8 +8,8 @@ datasource db {
 }
 
 model Vent {
-  id        String @id @default(cuid())
+  id        String  @id @default(cuid())
   title     String
   paragraph String
-  password  String
+  password  String?
 }
