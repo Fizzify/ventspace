@@ -29,17 +29,22 @@ export default async function handler(
       res.status(200).json(vents);
       break;
     case "POST":
-      const { title, paragraph, password } = req.body;
-      const postedVent: IVent = await prisma.vent.create({
-        data: {
-          title,
-          paragraph,
-          password,
-        },
-      });
+      try {
+        const { title, paragraph, password } = req.body;
+        const postedVent: IVent = await prisma.vent.create({
+          data: {
+            title,
+            paragraph,
+            password,
+          },
+        });
 
-      res.status(200).json(postedVent);
-      break;
+        res.status(200).json(postedVent);
+        break;
+      } catch (err) {
+        console.log(err);
+        break;
+      }
     case "DELETE":
       const id: string | undefined = req.query.id?.toString();
       const deletedVent: IVent = await prisma.vent.delete({
