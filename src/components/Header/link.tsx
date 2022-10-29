@@ -8,7 +8,7 @@ interface ILink {
 
 const Link = ({ href, children }: ILink) => {
   return (
-    <li>
+    <li className="inline mx-2 hover:opacity-50">
       <NextLink href={href}>{children}</NextLink>
     </li>
   );

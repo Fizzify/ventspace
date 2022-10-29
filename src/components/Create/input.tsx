@@ -17,7 +17,7 @@ const CreateInput = ({
     <div className={`${className ? className : ""}`}>
       <label className="text-xl">{children}</label>
       <input
-        className={`block border border-black mx-auto outline-none px-2 my-4`}
+        className={`block border border-neutral-400 mx-auto px-2 my-4 rounded shadow`}
         onChange={onChange}
         name={name}
         type={type}

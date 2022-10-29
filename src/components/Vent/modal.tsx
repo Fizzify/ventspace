@@ -53,7 +53,7 @@ const VentModal = ({ id, opened, password, setIsModalOpened }: IVentModal) => {
 
           <form
             onSubmit={handleDelete}
-            className="absolute left-2/4 top-2/4 translate-x-[-50%] translate-y-[-50%] bg-white opacity-100 px-10 py-20 rounded"
+            className="absolute left-2/4 top-2/4 translate-x-[-50%] translate-y-[-50%] bg-white opacity-100 px-10 py-20 rounded shadow-xl"
           >
             <h3 className="text-black text-4xl font-bold">Delete Vent</h3>
             <p className="w-96 mx-auto mt-5">
@@ -63,7 +63,7 @@ const VentModal = ({ id, opened, password, setIsModalOpened }: IVentModal) => {
             <CreateInput onChange={handleChange} className="mt-10" type="text">
               Password
             </CreateInput>
-            <button className="bg-red-700 hover:bg-red-800 text-white uppercase tracking-widest font-light px-4 py-2">
+            <button className="bg-red-700 hover:bg-red-800 text-white uppercase tracking-widest font-light px-4 py-2 rounded shadow">
               Delete Forever
             </button>
           </form>

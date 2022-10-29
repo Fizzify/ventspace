@@ -26,7 +26,7 @@ const VentItem = ({ id, title, paragraph, password }: IVentItem) => {
       <h3 className="font-bold text-2xl">{title}</h3>
       <p>{paragraph}</p>
       <button
-        className="px-4 py-1 bg-red-700 hover:bg-red-900 text-white uppercase tracking-widest mt-5 font-light"
+        className="px-4 py-1 bg-red-700 hover:bg-red-900 text-white uppercase tracking-widest mt-5 font-light rounded shadow-md"
         onClick={handleDelete}
       >
         Delete

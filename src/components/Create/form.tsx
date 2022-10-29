@@ -43,7 +43,7 @@ const CreateForm = () => {
 
   return (
     <form
-      className="mt-5 bg-neutral-50 rounded shadow py-10 w-96 mx-auto"
+      className="mt-5 bg-neutral-50 rounded shadow-md py-10 w-96 mx-auto"
       onSubmit={handleSubmit}
     >
       <CreateInput onChange={handleChange} name="title" type="text">
@@ -55,7 +55,7 @@ const CreateForm = () => {
       <CreateInput onChange={handleChange} name="password" type="text">
         Password
       </CreateInput>
-      <CreateButton className="mt-5">Submit</CreateButton>
+      <CreateButton className="mt-5 rounded">Submit</CreateButton>
     </form>
   );
 };
