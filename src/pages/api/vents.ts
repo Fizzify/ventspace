@@ -29,7 +29,6 @@ export default async function handler(
       res.status(200).json(vents);
       break;
     case "POST":
-      console.log("BRO WHAT");
       const { title, paragraph, password } = req.body;
       const postedVent: IVent = await prisma.vent.create({
         data: {
