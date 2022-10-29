@@ -16,7 +16,7 @@ const VentItem = ({ id, title, paragraph, password }: IVentItem) => {
   };
 
   return (
-    <div className="py-8 bg-neutral-50 block my-8 rounded-md shadow">
+    <div className="py-8 px-20 bg-neutral-50 block my-8 rounded-md shadow">
       <VentModal
         id={id}
         password={password}
