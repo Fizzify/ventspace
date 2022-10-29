@@ -52,6 +52,9 @@ const CreateForm = () => {
       <CreateInput onChange={handleChange} name="paragraph" type="text">
         Paragraph
       </CreateInput>
+      <CreateInput onChange={handleChange} name="password" type="text">
+        Password
+      </CreateInput>
       <CreateButton className="mt-5">Submit</CreateButton>
     </form>
   );

@@ -1,4 +1,5 @@
-import Router from "next/router";
+import { useState } from "react";
+import VentModal from "./modal";
 
 export interface IVentItem {
   id?: string;
@@ -7,21 +8,21 @@ export interface IVentItem {
   password: string;
 }
 
-const VentItem = ({ id, title, paragraph }: IVentItem) => {
-  const handleDelete: React.MouseEventHandler<HTMLButtonElement> = async () => {
-    const res = await fetch(`https://ventspace.vercel.app/api/vents?id=${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
+const VentItem = ({ id, title, paragraph, password }: IVentItem) => {
+  const [isModalOpened, setIsModalOpened] = useState<boolean>(false);
 
-    if (res.ok) return Router.push("/");
+  const handleDelete: React.MouseEventHandler<HTMLButtonElement> = async () => {
+    setIsModalOpened(true);
   };
 
   return (
     <div className="py-8 bg-neutral-50 block my-8 rounded-md shadow">
+      <VentModal
+        id={id}
+        password={password}
+        opened={isModalOpened}
+        setIsModalOpened={setIsModalOpened}
+      />
       <h3 className="font-bold text-2xl">{title}</h3>
       <p>{paragraph}</p>
       <button
