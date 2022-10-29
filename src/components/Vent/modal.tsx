@@ -35,8 +35,12 @@ const VentModal = ({ id, opened, password, setIsModalOpened }: IVentModal) => {
     setPasswordValue(value);
   };
 
-  const handleDelete: React.FormEventHandler<HTMLFormElement> = () => {
+  const handleDelete: React.FormEventHandler<HTMLFormElement> = (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
     if (passwordValue === password) return deleteVent(id);
+    console.error("WRONG PASSWORD LOL!");
   };
   return (
     <>
