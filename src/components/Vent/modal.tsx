@@ -11,8 +11,10 @@ interface IVentModal {
 
 const VentModal = ({ id, opened, password, setIsModalOpened }: IVentModal) => {
   const [passwordValue, setPasswordValue] = useState<string>("");
+  const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
 
   const deleteVent = async (id: string | undefined) => {
+    setIsFormSubmitted(true);
     const res = await fetch(`https://ventspace.vercel.app/api/vents?id=${id}`, {
       method: "DELETE",
       headers: {
@@ -40,7 +42,6 @@ const VentModal = ({ id, opened, password, setIsModalOpened }: IVentModal) => {
   ) => {
     e.preventDefault();
     if (passwordValue === password) return deleteVent(id);
-    console.error("WRONG PASSWORD LOL!");
   };
   return (
     <>
@@ -63,7 +64,12 @@ const VentModal = ({ id, opened, password, setIsModalOpened }: IVentModal) => {
             <CreateInput onChange={handleChange} className="mt-10" type="text">
               Password
             </CreateInput>
-            <button className="bg-red-700 hover:bg-red-800 text-white uppercase tracking-widest font-light px-4 py-2 rounded shadow">
+            <button
+              disabled={isFormSubmitted ? true : false}
+              className={`${
+                !isFormSubmitted ? "bg-red-700 hover:bg-red-800" : "bg-red-400"
+              } text-white uppercase tracking-widest font-light px-4 py-2 rounded shadow`}
+            >
               Delete Forever
             </button>
           </form>

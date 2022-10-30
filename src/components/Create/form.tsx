@@ -10,6 +10,7 @@ const CreateForm = () => {
     paragraph: "",
     password: "",
   });
+  const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -28,6 +29,7 @@ const CreateForm = () => {
     e: React.FormEvent
   ) => {
     e.preventDefault();
+    setIsFormSubmitted(true);
 
     const res = await fetch("https://ventspace.vercel.app/api/vents", {
       method: "POST",
@@ -55,7 +57,9 @@ const CreateForm = () => {
       <CreateInput onChange={handleChange} name="password" type="text">
         Password
       </CreateInput>
-      <CreateButton className="mt-5 rounded">Submit</CreateButton>
+      <CreateButton submitted={isFormSubmitted} className="mt-5 rounded">
+        Submit
+      </CreateButton>
     </form>
   );
 };

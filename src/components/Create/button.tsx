@@ -1,12 +1,16 @@
 interface ICreateButton {
   className?: string;
+  submitted: boolean;
   children: React.ReactNode;
 }
 
-const CreateButton = ({ className, children }: ICreateButton) => {
+const CreateButton = ({ className, submitted, children }: ICreateButton) => {
   return (
     <button
-      className={`py-2 px-8 bg-black text-white font-light tracking-widest uppercase hover:bg-neutral-700 ${className}`}
+      disabled={submitted ? true : false}
+      className={`py-2 px-8 text-white font-light tracking-widest uppercase ${
+        !submitted ? "hover:bg-neutral-700 bg-black" : "bg-neutral-500"
+      } ${className}`}
     >
       {children}
     </button>
