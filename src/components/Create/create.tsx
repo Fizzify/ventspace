@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CreateInput from "./input";
-import { VentType } from "../Vent";
+import type { VentType } from "../Vent";
 import CreateButton from "./button";
 import { api } from "~/utils/api";
 
@@ -30,14 +30,12 @@ const CreateForm = () => {
     });
   };
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (
-    e: React.FormEvent
-  ) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     setIsFormSubmitted(true);
 
-    mutateAsync({
+    await mutateAsync({
       ...newVent,
     });
   };
@@ -45,7 +43,7 @@ const CreateForm = () => {
   return (
     <form
       className="mx-auto mt-5 w-96 rounded bg-neutral-50 py-10 shadow-md"
-      onSubmit={handleSubmit}
+      onSubmit={(e) => void handleSubmit(e)}
     >
       <CreateInput onChange={handleChange} name="title" type="text">
         Title

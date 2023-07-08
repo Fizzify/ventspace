@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Router from "next/router";
 import CreateInput from "../Create/input";
 import { api } from "~/utils/api";
 
@@ -22,7 +21,7 @@ const VentModal = ({
 
   const deleteVent = async (id: string) => {
     setIsFormSubmitted(true);
-    mutateAsync(id);
+    await mutateAsync(id);
   };
 
   const handleClick: React.MouseEventHandler<HTMLDivElement> = () => {
@@ -36,12 +35,13 @@ const VentModal = ({
     setPasswordValue(value);
   };
 
-  const handleDelete: React.FormEventHandler<HTMLFormElement> = (
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleDelete = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (passwordValue === password) return deleteVent(id!);
+    if (!id) return;
+
+    if (passwordValue === password) await deleteVent(id);
   };
+
   return (
     <>
       {opened && (
@@ -52,7 +52,7 @@ const VentModal = ({
           ></div>
 
           <form
-            onSubmit={handleDelete}
+            onSubmit={(e) => void handleDelete(e)}
             className="fixed left-2/4 top-2/4 translate-x-[-50%] translate-y-[-50%] rounded bg-white px-10 py-20 opacity-100 shadow-xl"
           >
             <h3 className="text-4xl font-bold text-black">Delete Vent</h3>

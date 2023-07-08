@@ -1,4 +1,5 @@
-import VentItem, { VentType } from "./";
+import type { VentType } from "~/types/vent";
+import VentItem from "./";
 
 type VentListType = {
   ventData: VentType[];

@@ -11,7 +11,7 @@ export type VentType = {
 const VentItem = ({ id, title, paragraph, password }: VentType) => {
   const [isModalOpened, setIsModalOpened] = useState<boolean>(false);
 
-  const handleDelete: React.MouseEventHandler<HTMLButtonElement> = async () => {
+  const handleDelete: React.MouseEventHandler<HTMLButtonElement> = () => {
     setIsModalOpened(true);
   };
 

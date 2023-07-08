@@ -1,5 +1,4 @@
 import Link from "next/link";
-import NextLink from "next/link";
 import React from "react";
 
 type NavLinkType = {
