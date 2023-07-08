@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import CreateInput from "./input";
-import { IVentItem } from "../Vent";
+import { VentType } from "../Vent";
 import CreateButton from "./button";
 import { api } from "~/utils/api";
 
 const CreateForm = () => {
-  const [newVent, setNewVent] = useState<IVentItem>({
+  const [newVent, setNewVent] = useState<VentType>({
     title: "",
     paragraph: "",
     password: "",
